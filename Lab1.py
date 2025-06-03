@@ -89,3 +89,76 @@ x, y, z = "Orange", "Banana", "Cherry"
 print(x)
 print(y)
 print(z)
+
+# Part 2: Python
+
+# Integer type
+x = 1
+print(type(x))
+
+# Large integer
+y = 35656222554887711
+print(type(y))
+
+# Negative integer
+z = -3255522
+print(type(z))
+
+# Float type
+x = 1.10
+print(type(x))
+
+y = 1.0
+print(type(y))
+
+z = -35.59
+print(type(z))
+
+# Scientific notation (float)
+x = 35e3
+print(type(x))
+
+y = 12E4
+print(type(y))
+
+z = -87.7e100
+print(type(z))
+
+# Complex numbers
+x = 3+5j
+print(type(x))
+
+y = 5j
+print(type(y))
+
+z = -5j
+print(type(z))
+
+# Type conversions between int, float, complex
+a = float(1)
+print(a, type(a))
+
+b = int(2.8)
+print(b, type(b))
+
+c = complex(1)
+print(c, type(c))
+
+# Random number between 1 and 9
+import random
+print(random.randrange(1, 10))
+
+# Type casting
+x = int(1)
+y = int(2.8)
+z = int("3")
+
+x = float(1)
+y = float(2.8)
+z = float("3")
+w = float("4.2")
+
+x = str("s1")
+y = str(2)
+z = str(3.0)
+
