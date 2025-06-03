@@ -1,4 +1,4 @@
-# programmingPrinciples
+# ProgrammingPrinciples
 
 This repository is dedicated to learning and practicing programming principles using Python. The main objective is to develop a solid understanding of fundamental programming concepts and learn how to apply them efficiently using Python.
 
@@ -25,4 +25,4 @@ You can clone or download the repo and run the Python files in any IDE or code e
 
 ```bash
 # Example
-python part1.py
+python lab1.py
