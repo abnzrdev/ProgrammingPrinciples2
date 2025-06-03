@@ -162,3 +162,32 @@ x = str("s1")
 y = str(2)
 z = str(3.0)
 
+# Part 3: Python Strings and String Formatting
+
+# String concatenation and formatting examples
+a = "Hello"
+b = "World"
+c = a + " " + b  # Combine strings with a space
+print(c)
+
+# Using f-strings for formatting
+age = 36
+txt = f"My name is John, I am {age}"
+print(txt)
+
+price = 59
+txt = f"The price is {price} dollars"
+print(txt)
+
+# Formatting with two decimal places
+txt = f"The price is {price:.2f} dollars"
+print(txt)
+
+# Formatting expressions inside f-strings
+txt = f"The price is {20 * 59} dollars"
+print(txt)
+
+# Escaping double quotes in strings
+txt = "We are the so-called \"Vikings\" from the north."
+print(txt)
+
