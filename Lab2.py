@@ -202,3 +202,46 @@ fruits = ("apple", "banana", "cherry")
 print(green)
 print(yellow)
 print(red)
+
+# Python Sets: Basic Operations
+myset = {"apple", "banana", "cherry"}
+print(myset)
+
+myset.add("orange")
+print(myset)
+
+myset.update(["mango", "grape"])
+print(myset)
+
+myset.remove("banana")
+print(myset)
+
+myset.discard("apple")
+print(myset)
+
+myset.pop()
+print(myset)
+
+myset.clear()
+print(myset)
+
+# Python Sets: Looping and Checking
+myset = {"apple", "banana", "cherry"}
+for x in myset:
+    print(x)
+
+if "banana" in myset:
+    print("Yes, 'banana' is in the set")
+
+# Python Dictionaries: Basic Operations
+mydict = {"name": "John", "age": 30}
+print(mydict["name"])
+
+mydict["city"] = "New York"
+print(mydict)
+
+del mydict["age"]
+print(mydict)
+
+for key, value in mydict.items():
+    print(key, value)
