@@ -15,7 +15,16 @@ This project follows topics from W3Schools' Python tutorials as part of a univer
 - Variables and data types  
 - String operations  
 - Control flow (if, else, etc.)  
-- Comments and print statements  
+- Comments and print statements
+- Booleans
+- Operators
+- Lists
+- Tuples
+- Sets
+- Dictionaries
+- If...Else
+- Match
+- Loops
 
 More topics and practice sections will be added as the learning progresses.
 
