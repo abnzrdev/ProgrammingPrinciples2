@@ -1,0 +1,204 @@
+# Boolean Comparison
+a = 200
+b = 33
+if b > a:
+    print("b is greater than a")
+else:
+    print("b is not greater than a")
+
+# Boolean evaluation
+x = "Hello"
+y = 15
+print(bool(x))
+print(bool(y))
+
+# Boolean evaluation of falsy values
+print(bool(False))
+print(bool(None))  # None is a data type that returns False in bool context
+print(bool(0))
+print(bool(""))
+print(bool(()))
+print(bool([]))
+print(bool({}))
+
+# Custom class with len method
+class myclass:
+    def len(self):
+        return 0
+
+myobj = myclass()
+print(bool(myobj))
+
+# Function returning boolean
+def myFunction():
+    return True
+
+print(myFunction())
+
+# Conditional based on function
+if myFunction():
+    print("YES!")
+else:
+    print("NO!")
+
+# Type checking
+x = 200
+print(isinstance(x, int))
+
+# Arithmetic
+print((6 + 3) - (6 + 3))
+
+# List operations
+thislist = ["apple", "banana", "cherry"]
+print(thislist)
+
+list1 = ["apple", "banana", "cherry"]
+list2 = [1, 5, 7, 9, 3]
+list3 = [True, False, False]
+print(list1)
+print(list2)
+print(list3)
+
+# List indexing
+mylist = ['apple', 'banana', 'cherry']
+print(mylist[-1])
+
+# List type checking
+mylist = ["apple", "banana", "cherry"]
+print(type(mylist))
+
+# List slicing
+thislist = ["apple", "banana", "cherry", "orange", "kiwi", "melon", "mango"]
+print(thislist[2:5])
+print(thislist[:4])
+print(thislist[-4:-1])
+
+# List modification
+thislist = ["apple", "banana", "cherry"]
+thislist[1:2] = ["blackcurrant", "watermelon"]
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist[1:3] = ["watermelon"]
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist.insert(2, "watermelon")
+print(thislist)
+
+# List extension
+thislist = ["apple", "banana", "cherry"]
+tropical = ["mango", "pineapple", "papaya"]
+thislist.extend(tropical)
+print(thislist)
+
+# List removal
+thislist = ["apple", "banana", "cherry"]
+thislist.remove("banana")
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist.pop(1)
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+thislist.pop()
+print(thislist)
+
+thislist = ["apple", "banana", "cherry"]
+del thislist[0]
+print(thislist)
+
+# List clearing
+thislist = ["apple", "banana", "cherry"]
+thislist.clear()
+print(thislist)
+
+# List iteration
+thislist = ["apple", "banana", "cherry"]
+for x in thislist:
+    print(x)
+
+for i in range(len(thislist)):
+    print(thislist[i])
+
+i = 0
+while i < len(thislist):
+    print(thislist[i])
+    i += 1
+
+[print(x) for x in thislist]
+
+# List comprehension
+newlist = [x for x in range(10) if x < 5]
+print(newlist)
+
+# List sorting
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort()
+print(thislist)
+
+thislist = [100, 50, 65, 82, 23]
+thislist.sort()
+print(thislist)
+
+thislist = ["orange", "mango", "kiwi", "pineapple", "banana"]
+thislist.sort(reverse=True)
+print(thislist)
+
+thislist = [100, 50, 65, 82, 23]
+thislist.sort(reverse=True)
+print(thislist)
+
+# List reversal
+thislist = ["banana", "Orange", "Kiwi", "cherry"]
+thislist.reverse()
+print(thislist)
+
+# List copying
+thislist = ["apple", "banana", "cherry"]
+mylist = list(thislist)
+print(mylist)
+
+thislist = ["apple", "banana", "cherry"]
+mylist = thislist[:]
+print(mylist)
+
+# Tuple operations
+thistuple = ("apple", "banana", "cherry", "orange", "kiwi", "melon", "mango")
+print(thistuple[2:])
+
+thistuple = ("apple", "banana", "cherry")
+if "apple" in thistuple:
+    print("Yes, 'apple' is in the fruits tuple")
+
+# Tuple modification (via list conversion)
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.append("orange")
+thistuple = tuple(y)
+print(thistuple)
+
+thistuple = ("apple", "banana", "cherry")
+y = ("orange",)
+thistuple += y
+print(thistuple)
+
+thistuple = ("apple", "banana", "cherry")
+y = list(thistuple)
+y.remove("apple")
+thistuple = tuple(y)
+print(thistuple)
+
+# Tuple unpacking
+fruits = ("apple", "mango", "papaya", "pineapple", "cherry")
+(green, *tropic, red) = fruits
+print(green)
+print(tropic)
+print(red)
+
+fruits = ("apple", "banana", "cherry")
+(green, yellow, red) = fruits
+print(green)
+print(yellow)
+print(red)
