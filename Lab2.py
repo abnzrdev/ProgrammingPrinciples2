@@ -245,3 +245,55 @@ print(mydict)
 
 for key, value in mydict.items():
     print(key, value)
+
+# Python if...Else
+a = 200
+b = 33
+if b > a:
+    print("b is greater than a")
+else:
+    print("b is not greater than a")
+
+x = 100
+if x > 200:
+    print("x is greater than 200")
+elif x == 100:
+    print("x is 100")
+else:
+    print("x is less than 100")
+
+# Python Match (Python 3.10+)
+x = 2
+match x:
+    case 1:
+        print("x is 1")
+    case 2:
+        print("x is 2")
+    case _:
+        print("x is something else")
+
+# Python While Loops
+i = 0
+while i < 5:
+    print(i)
+    i += 1
+
+i = 0
+while i < 5:
+    print(i)
+    if i == 3:
+        break
+    i += 1
+
+# Python For Loops
+thislist = ["apple", "banana", "cherry"]
+for x in thislist:
+    print(x)
+
+for i in range(5):
+    print(i)
+
+for x in thislist:
+    if x == "banana":
+        break
+    print(x)
