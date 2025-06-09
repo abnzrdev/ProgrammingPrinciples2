@@ -213,3 +213,34 @@ del p1
 # Empty class
 class Person:
     pass
+
+# Inheriting from Person (using base class constructor directly)
+class Student(Person):
+    def __init__(self, fname, lname):
+        Person.__init__(self, fname, lname)
+
+# Inheriting using super()
+class Student(Person):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+
+# Adding extra attribute
+class Student(Person):
+    def __init__(self, fname, lname):
+        super().__init__(fname, lname)
+        self.graduationyear = 2019
+
+# Constructor with additional parameter
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+x = Student("Mike", "Olsen", 2019)
+
+# Child class with custom method
+class Student(Person):
+    def __init__(self, fname, lname, year):
+        super().__init__(fname, lname)
+        self.graduationyear = year
+    def welcome(self):
+        print("Welcome", self.firstname, self.lastname, "to the class of", self.graduationyear)
