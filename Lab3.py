@@ -110,3 +110,39 @@ def tri_recursion(k):
     return result
 print("Recursion Example Results:")
 tri_recursion(6)
+
+# Simple lambda with one argument
+x = lambda a : a + 10
+print(x(5))
+
+# Lambda with two arguments
+x = lambda a, b : a * b
+print(x(5, 6))
+
+# Lambda with three arguments
+x = lambda a, b, c : a + b + c
+print(x(5, 6, 2))
+
+# Lambda returning function (closure)
+def myfunc(n):
+    return lambda a : a * n
+
+# Using a lambda doubler
+def myfunc(n):
+    return lambda a : a * n
+mydoubler = myfunc(2)
+print(mydoubler(11))
+
+# Using a lambda tripler
+def myfunc(n):
+    return lambda a : a * n
+mytripler = myfunc(3)
+print(mytripler(11))
+
+# Using both doubler and tripler
+def myfunc(n):
+    return lambda a : a * n
+mydoubler = myfunc(2)
+mytripler = myfunc(3)
+print(mydoubler(11))
+print(mytripler(11))
