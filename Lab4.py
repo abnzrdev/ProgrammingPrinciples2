@@ -40,3 +40,53 @@ seconds_diff = time_difference.total_seconds()
 
 print("Difference in Seconds:", seconds_diff)
 
+# 1. Generate square numbers up to n
+def square_generator(n):
+    for i in range(n + 1):
+        yield i ** 2
+
+for num in square_generator(5):
+    print(num, end=" ")
+print()
+
+
+# 2. Generate even numbers up to n
+def even_numbers_up_to(n):
+    for i in range(n + 1):
+        if i % 2 == 0:
+            yield i
+
+limit = int(input("Enter a number: "))
+evens = list(even_numbers_up_to(limit))
+print("Even numbers:", ", ".join(map(str, evens)))
+
+
+# 3. Numbers divisible by both 3 and 4 up to n
+def divisible_by_3_and_4(n):
+    for i in range(n + 1):
+        if i % 3 == 0 and i % 4 == 0:
+            yield i
+
+for num in divisible_by_3_and_4(50):
+    print(num, end=" ")
+print()
+
+
+# 4. Generate squares in a range
+def range_squares(start, end):
+    for i in range(start, end + 1):
+        yield i ** 2
+
+for val in range_squares(3, 7):
+    print(val)
+
+
+# 5. Countdown from n to 0
+def countdown_from(n):
+    while n >= 0:
+        yield n
+        n -= 1
+
+for num in countdown_from(5):
+    print(num, end=" ")
+print()
