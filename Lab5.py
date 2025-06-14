@@ -40,3 +40,21 @@ def find_uppercase_followed_by_lowercase(s):
     return re.findall(pattern, s)
 
 print(find_uppercase_followed_by_lowercase("Hello World"))  # ['Hello', 'World']
+
+# Replace all occurrences of space, comma, or dot with a colon
+def replace_with_colon(s):
+    return re.sub(r"[ ,\.]", ":", s)
+
+print(replace_with_colon("Hello, world. How are you?"))  # Hello:world:How:are:you?
+
+# Split a string at uppercase letters
+def split_at_uppercase(s):
+    return re.findall(r'[A-Z][^A-Z]*', s)
+
+print(split_at_uppercase("HelloWorldThisIsPython"))  # ['Hello', 'World', 'This', 'Is', 'Python']
+
+# Insert spaces between words starting with a capital letter
+def insert_spaces_between_capitals(s):
+    return re.sub(r'(?<!^)(?=[A-Z])', ' ', s)
+
+print(insert_spaces_between_capitals("HelloWorldThisIsPython"))  # Hello World This Is Python
