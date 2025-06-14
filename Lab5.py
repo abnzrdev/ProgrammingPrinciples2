@@ -58,3 +58,16 @@ def insert_spaces_between_capitals(s):
     return re.sub(r'(?<!^)(?=[A-Z])', ' ', s)
 
 print(insert_spaces_between_capitals("HelloWorldThisIsPython"))  # Hello World This Is Python
+
+# Convert a snake case string to camel case
+def snake_to_camel(snake_str):
+    components = snake_str.split('_')
+    return components[0] + ''.join(x.title() for x in components[1:])
+
+print(snake_to_camel("hello_world"))  # helloWorld
+
+# Convert a given camel case string to snake case
+def camel_to_snake(camel_str):
+    return re.sub(r'(?<!^)(?=[A-Z])', '_', camel_str).lower()
+
+print(camel_to_snake("HelloWorld"))  # hello_world
