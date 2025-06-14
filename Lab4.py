@@ -90,3 +90,37 @@ def countdown_from(n):
 for num in countdown_from(5):
     print(num, end=" ")
 print()
+
+# 1. Convert degrees to radians
+import math
+
+angle_deg = 15
+angle_rad = math.radians(angle_deg)
+
+print("Input Degree:", angle_deg)
+print("Radian:", round(angle_rad, 6))
+
+
+# 2. Area of a trapezoid
+height = 5
+base_top = 5
+base_bottom = 6
+trapezoid_area = 0.5 * (base_top + base_bottom) * height
+
+print("Trapezoid Area:", trapezoid_area)
+
+
+# 3. Area of a regular polygon
+num_sides = 4
+side_len = 25
+polygon_area = (num_sides * side_len ** 2) / (4 * math.tan(math.pi / num_sides))
+
+print("Polygon Area:", round(polygon_area, 2))
+
+
+# 4. Area of a parallelogram
+base = 5
+height = 6
+parallelogram_area = base * height
+
+print("Parallelogram Area:", float(parallelogram_area))
