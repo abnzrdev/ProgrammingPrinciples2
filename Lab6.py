@@ -9,7 +9,9 @@ text_block = "Contact us at info@example.com or support@mydomain.org and admin@a
 print("Extracted Emails:", extract_emails(text_block))
 
 # 2. Log parsing for IP and timestamp
-parse_log = lambda entry: re.findall(r'(\d{1,3}(?:\.\d{1,3}){3})\s.*\[(.*?)\]', entry)
+def parse_log(entry):
+    return re.findall(r'(\d{1,3}(?:\.\d{1,3}){3})\s.*\[(.*?)\]', entry)
+
 log_sample = '123.45.67.89 - - [10/Oct/2022:13:55:36 -0700] "GET /index.html HTTP/1.1" 200 2326'
 print("Log IP and Date:", parse_log(log_sample))
 
@@ -21,7 +23,9 @@ def validate_password(pwd):
 print("Password valid?", validate_password("StrongPass1"))
 
 # 4. Hashtag extraction
-get_hashtags = lambda s: re.findall(r'#\w[\w\ufe0f\u200d]*', s)
+def get_hashtags(s):
+    return re.findall(r'#\w[\w\ufe0f\u200d]*', s)
+
 tweet_text = "Loving the new #Python3.11 update! #💻 #Code_Newbie"
 print("Tweet Hashtags:", get_hashtags(tweet_text))
 
