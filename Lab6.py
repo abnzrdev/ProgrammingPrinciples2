@@ -1,39 +1,169 @@
-import re
+# ===== Imports (Common for All Tasks) =====
+import os
+import time
+import math
+import string
+from functools import reduce
+import operator
 
-def extract_emails(data):
-    regex = r'[\w.-]+@[\w.-]+\.(?:com|org|net)'
-    return re.findall(regex, data)
+# ==================================================
+# ============ SECTION 1: File Operations ==========
+# ==================================================
 
-# 1. Email extraction
-text_block = "Contact us at info@example.com or support@mydomain.org and admin@abc.net"
-print("Extracted Emails:", extract_emails(text_block))
+# ---------- Task 1: List directories and files ----------
+def list_directories_and_files():
+    user_path = input("Enter a path to list directories and files: ").strip()
 
-# 2. Log parsing for IP and timestamp
-def parse_log(entry):
-    return re.findall(r'(\d{1,3}(?:\.\d{1,3}){3})\s.*\[(.*?)\]', entry)
+    if not os.path.exists(user_path):
+        print("The given path does not exist.")
+        return
 
-log_sample = '123.45.67.89 - - [10/Oct/2022:13:55:36 -0700] "GET /index.html HTTP/1.1" 200 2326'
-print("Log IP and Date:", parse_log(log_sample))
+    print("\nDirectories:")
+    dirs = [item for item in os.listdir(user_path) if os.path.isdir(os.path.join(user_path, item))]
+    print(dirs)
 
-# 3. Password validation
-def validate_password(pwd):
-    pattern = r'^(?=.*[a-z])(?=.*[A-Z])(?=.*\d).{8,}$'
-    return bool(re.fullmatch(pattern, pwd))
+    print("\nFiles:")
+    files = [item for item in os.listdir(user_path) if os.path.isfile(os.path.join(user_path, item))]
+    print(files)
 
-print("Password valid?", validate_password("StrongPass1"))
+    print("\nAll contents:")
+    print(os.listdir(user_path))
 
-# 4. Hashtag extraction
-def get_hashtags(s):
-    return re.findall(r'#\w[\w\ufe0f\u200d]*', s)
 
-tweet_text = "Loving the new #Python3.11 update! #💻 #Code_Newbie"
-print("Tweet Hashtags:", get_hashtags(tweet_text))
+# ---------- Task 2: Check file access permissions ----------
+def check_access_permissions():
+    path = input("Enter the path to check access: ").strip()
+    if os.path.exists(path):
+        print("✓ Path exists")
+        print("✓ Readable" if os.access(path, os.R_OK) else "✗ Not readable")
+        print("✓ Writable" if os.access(path, os.W_OK) else "✗ Not writable")
+        print("✓ Executable" if os.access(path, os.X_OK) else "✗ Not executable")
+    else:
+        print("✗ Path does not exist")
 
-# 5. Phone normalization
 
-def normalize_phones(raw):
-    pat = r'(?:\+?7|8)[\s-]?(\d{3})[\s-]?(\d{3})[\s-]?(\d{2})[\s-]?(\d{2})'
-    return [f'+7 ({a}) {b}-{c}-{d}' for a, b, c, d in re.findall(pat, raw)]
+# ---------- Task 3: Extract directory and filename ----------
+def show_directory_and_filename():
+    full_path = input("Enter a full file path: ").strip()
+    if os.path.exists(full_path):
+        print("Directory:", os.path.dirname(full_path))
+        print("Filename:", os.path.basename(full_path))
+    else:
+        print("Invalid path.")
 
-phones_input = "Call us at +7 701 123 4567 or 87011234567 or 7-701-123-45-67."
-print("Standardized Phones:", normalize_phones(phones_input))
+# ==================================================
+# ======== SECTION 2: File Content Handling ========
+# ==================================================
+
+# ---------- Task 4: Count lines in a text file ----------
+def count_file_lines():
+    file_name = input("Enter the filename: ").strip()
+    try:
+        with open(file_name, 'r') as file:
+            lines = sum(1 for _ in file)
+        print("Total lines:", lines)
+    except FileNotFoundError:
+        print("File not found.")
+
+
+# ---------- Task 5: Write a list to a file ----------
+def write_list_to_file():
+    fruits = ["apple", "banana", "cherry", "date"]
+    file_name = input("Enter a filename with .txt extension: ").strip()
+    with open(file_name, 'w') as f:
+        f.write('\n'.join(fruits))
+    print(f"List written to {file_name}")
+
+
+# ---------- Task 6: Create 26 text files (A-Z) ----------
+def create_alphabet_files():
+    for letter in string.ascii_uppercase:
+        with open(f"{letter}.txt", 'w') as f:
+            f.write(f"This is the file for letter {letter}")
+    print("Created 26 text files (A-Z).")
+
+
+# ---------- Task 7: Copy content from one file to another ----------
+def copy_file_content():
+    src = input("Source file (.txt): ").strip()
+    dest = input("Destination file (.txt): ").strip()
+    try:
+        with open(src, 'r') as source, open(dest, 'w') as target:
+            target.write(source.read())
+        print(f"Copied content from {src} to {dest}")
+    except FileNotFoundError:
+        print("Source file not found.")
+
+
+# ---------- Task 8: Delete a file ----------
+def delete_file():
+    path = input("Enter the path of the file to delete: ").strip()
+    if os.path.exists(path):
+        if os.access(path, os.W_OK):
+            try:
+                os.remove(path)
+                print("File deleted successfully.")
+            except Exception as e:
+                print("Error deleting file:", e)
+        else:
+            print("No write permission to delete the file.")
+    else:
+        print("File not found.")
+
+# ==================================================
+# ======== SECTION 3: Math and Text Utilities ======
+# ==================================================
+
+# ---------- Task 9: Multiply all numbers in a list ----------
+def multiply_list_elements():
+    numbers = [2, 3, 4, 5]
+    product = reduce(operator.mul, numbers)
+    print("Product of list:", product)
+
+
+# ---------- Task 10: Count upper and lower case letters ----------
+def count_letter_cases(text):
+    upper = sum(1 for c in text if c.isupper())
+    lower = sum(1 for c in text if c.islower())
+    print("Uppercase:", upper)
+    print("Lowercase:", lower)
+
+
+# ---------- Task 11: Check if a string is palindrome ----------
+def check_palindrome(text):
+    if text == text[::-1]:
+        print("✓ It's a palindrome")
+    else:
+        print("✗ Not a palindrome")
+
+
+# ---------- Task 12: Delayed square root ----------
+def delayed_square_root(number, delay_ms):
+    time.sleep(delay_ms / 1000)
+    print(f"Square root of {number} after {delay_ms} ms is {math.sqrt(number)}")
+
+# ==================================================
+# ========= SECTION 4: Boolean and Logic ===========
+# ==================================================
+
+# ---------- Task 13: Check if all elements in a tuple are true ----------
+def check_all_true(elements):
+    print("All elements true:", all(elements))
+
+
+# ==================================================
+# ========== Optional: Sample Calls Below ==========
+# ==================================================
+# list_directories_and_files()
+# check_access_permissions()
+# show_directory_and_filename()
+# count_file_lines()
+# write_list_to_file()
+# create_alphabet_files()
+# copy_file_content()
+# delete_file()
+# multiply_list_elements()
+# count_letter_cases("Hello World!")
+# check_palindrome("madam")
+# delayed_square_root(144, 1500)
+# check_all_true((True, 1, "hello", 3.14))
